@@ -1,62 +1,47 @@
-    let choices = ["rock", "paper", "scissors"];
+    const choices = ["rock", "paper", "scissors"];
     let playerChoice;
     let playerScore = 0;
     let computerScore = 0;
-    
+
     //function gets the computers choice
     function getComputerChoice(){
-      const choice = Math.floor(Math.random()* choices.length);
+      const choice = Math.floor(Math.random() * choices.length);
       return choices[choice];
     }
     let computerChoice = getComputerChoice();
 
     //function plays a single round of rock paper scissors
     function playSingleRound(playerSelection, computerSelection){
-      playerChoice = prompt("Type in your choice");
-      playerChoice = playerChoice.toLowerCase();
+     computerSelection = getComputerChoice();
+     playerChoice = prompt("Type in your choice");
+     playerSelection = playerChoice.toLowerCase();
       
-      if(choices.includes(playerChoice) == false){
-        console.log(playerSelection);
-        return alert("That is not an option!");
+      if(!choices.includes(playerSelection)) return alert(`Invalid input`);
+
+      if(playerSelection === computerSelection) alert ("Draw, no winner for this round!");
+       else
+        if ((playerSelection === "rock" && computerSelection === "paper") ||
+            (playerSelection === "paper" && computerSelection === "scissors") ||
+            (playerSelection === "scissors" && computerSelection === "rock")){
+              alert(`You lose this round: ${computerSelection} beats ${playerSelection}`); 
+              computerScore++;
+              }else{
+                alert(`You win this round: ${playerSelection} beats ${computerSelection}`); 
+                playerScore++;
+              }
       }
 
-       if (playerSelection == computerSelection){
-        alert("No winner, PLAY AGAIN!");
-      }  else if (playerSelection == "rock" && computerSelection =="paper"){
-          alert("You lose: Paper beats Rock!");
-          computerScore++;
-        }else if(playerSelection=="paper" && computerSelection=="scissors"){
-          alert("You lose: Scissors beats Paper!");
-          computerScore++;
-        }else if(playerSelection=="paper" && computerSelection=="rock"){
-          alert("You win: Paper beats Rock!");
-          playerScore++;
-        }else if(playerSelection=="scissors" && computerSelection=="rock"){
-          alert("You lose: Rock beats Scissors!");
-          computerScore++;
-        }else if(playerSelection=="rock" && computerSelection=="scissors"){
-          alert("You win: Rock beats scissors!");
-          playerScore++;
-        }else if(playerSelection=="scissors" && computerSelection=="paper"){
-          alert("You win: scissors beats paper!");
-          playerScore++;
-        }
+      const gameWinner = () => {
+        if(playerScore > computerScore) alert ("Congratulations, you won the game!");
+        else if(computerScore > playerScore) alert("You lose, try again next time!");
       }
 
       function game(){
-        for(let i= 0; i < 5; i++){
+        while(computerScore < 5 || playerScore < 5){
           playSingleRound(playerChoice, computerChoice);
           alert(`Player score ${playerScore} Computer Score ${computerScore}`);
-          if(playerChoice == computerChoice){
-            return i--
-          }
-          if(playerScore == 5 || computerScore ==5){
-            if(playerScore == 5){
-            alert("You win!");
-            }else if(computerScore == 5){
-            alert("You lose!");
-            }
-          }
+
+          if(computerScore === 5 || playerScore === 5) return gameWinner();
         }
       }
       game();
