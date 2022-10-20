@@ -32,20 +32,26 @@
         <div class="computer-score">0 <br><span> Computer </span></div>
       </div>
     </section>
-  </div>
-  <button data-modal-target=".modal">How to play</button>
-  <div class="modal">
+    
+    <button class="modal-button"data-modal-target=".modal">How to play</button>
+    <div class="modal">
     <div class="modal--header">
       <div class="title">about game</div>
       <button data-close-button class="close-modal">&times;</button>
     </div>
     <div class="modal--body">
         <p class="about"> This is a 1 Player vs Computer game of 5 rounds. </p>
-        <p class="about"> Your choices are Rock, Paper, and scissors.  Choose one by
-           clicking on it and a round will be played. </p>
+        <p class="about"> Your choices are Rock, Paper, and scissors.</p>
+        <ul class="game-rules">
+          <li>Rock beats scissors.</li>
+          <li>Scissors beats paper.</li>
+          <li>Paper beats rock.</li>
+        </ul>  
+          <p>Choose one by clicking on it and a round will be played. </p>
         <p class="about"> Good luck!</p>
     </div>
   </div>
   <div class="overlay "></div>
+  </div>
 </body>
 </html>
