@@ -9,12 +9,43 @@
   <title>Rock Paper Scissors</title>
 </head>
 <body>
-<h1>GAME OF ROCK PAPER SCISSORS</h1>
-<ul>
- <h2> Your choices are: </h2>
-  <li>Rock</li>
-  <li>Paper</li>
-  <li>Scissors</li>
-</ul>
+  <div class="game-screen">
+    <section class="section1">
+        <div class= "options">
+          <ul class="options-list container ">
+            <li class="option one option-out"><a href="#" class="option-name">rock</a></li>
+            <li class="option two option-out"><a href="#" class="option-name">paper</a></li>
+            <li class="option three option-out"><a href="#" class="option-name">scissors</a></li>
+          </ul>
+      </div>
+    </section>
+    <section class="section2">
+      <div class="hands container">
+        <a href="#" class="left hand player-out"><img src="./Rock paper scissors/ROCK_-LEFT-removebg-preview.png" alt="left hand"></a>
+        <a href="#" class="right hand computer-out"><img src="./Rock paper scissors/ROCK_-RIGHT-removebg-preview.png" alt="right hand"></a>
+      </div>
+    </section>
+    <section class="section3">
+      <div class="score-container container">
+        <div class="player-score ">0 <br> <span> P1ayer1 </span></div>
+        <div class="score-separator">-</div>
+        <div class="computer-score">0 <br><span> Computer </span></div>
+      </div>
+    </section>
+  </div>
+  <button data-modal-target=".modal">How to play</button>
+  <div class="modal">
+    <div class="modal--header">
+      <div class="title">about game</div>
+      <button data-close-button class="close-modal">&times;</button>
+    </div>
+    <div class="modal--body">
+        <p class="about"> This is a 1 Player vs Computer game of 5 rounds. </p>
+        <p class="about"> Your choices are Rock, Paper, and scissors.  Choose one by
+           clicking on it and a round will be played. </p>
+        <p class="about"> Good luck!</p>
+    </div>
+  </div>
+  <div class="overlay "></div>
 </body>
 </html>
