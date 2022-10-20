@@ -7,6 +7,35 @@ const optionThree = document.querySelector('.three');
 const leftHand = document.querySelector('.left');
 const rightHand = document.querySelector('.right');
 const scores = document.querySelector('.score-container');
+const openModal = document.querySelector('[data-modal-target]');
+const closeModal = document.querySelector('[data-close-button]');
+const overLay = document.querySelector('.overlay');
+
+openModal.addEventListener('click', () => {
+  const modal = document.querySelector(openModal.dataset.modalTarget);
+  modalOpen(modal);
+});
+
+closeModal.addEventListener('click', () => {
+  const modal = closeModal.closest('.modal');
+  modalClose(modal);
+});
+
+overLay.addEventListener('click', () => {
+  const modal = document.querySelector('.modal');
+  modalClose(modal);
+});
+
+function modalOpen(modal){
+  if(modal === null)return;
+  modal.classList.add('active');
+  overLay.classList.add('active');
+}
+function modalClose(modal){
+  if(modal === null)return;
+  modal.classList.remove('active');
+  overLay.classList.remove('active');
+}
 
 function optionsOut(){
   for(let opt of options ){
@@ -30,11 +59,6 @@ function handsOut(){
     rightHand.classList.add('hand-intro2');
     scores.classList.add('score-intro');
   }
-    addEventListener('click', () => {
-    leftHand.classList.add('hand-intro1');
-    left.hand.classList.add()
-
-  })
 
     const choices = ["rock", "paper", "scissors"];
     let playerChoice;
@@ -83,11 +107,4 @@ function handsOut(){
         }
       }
 
-      const openModal = document.querySelector('[data-modal-target]');
-      const closeModal = document.querySelector('[data-close-button]');
-      const overlay = document.querySelector('.overlay');
-      
-      openModal.addEventListener('click', () => {
-        
-      })
       game();
